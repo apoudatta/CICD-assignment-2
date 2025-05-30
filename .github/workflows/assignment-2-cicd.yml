@@ -58,7 +58,8 @@ jobs:
         run: npm install pm2 -g
         
       - name: Start Application
-        run: pm2 start "./src/server.js" --name node-app
+        run: |
+          pm2 describe node-app > /dev/null && pm2 restart node-app || pm2 start "./src/server.js" --name node-app
 
       - name: Save PM2 process list
         run: pm2 save
