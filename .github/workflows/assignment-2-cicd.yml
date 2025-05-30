@@ -1,0 +1,64 @@
+name: CI/CD Assignment 2
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run Tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests and capture results
+        run: |
+          mkdir -p test-results
+          npm test > test-results/results.txt
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: test-results/results.txt
+
+  deploy:
+    runs-on: self-hosted
+    need: test
+    name: Deploy to Self-Hosted Runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download test results
+        uses: actions/download-artifact@v3
+        with:
+          name: test-results
+
+      - name: Display test results
+        run: cat test-results/results.txt
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Cleanup existing process
+        run: pm2 delete node-app || true
+
+      - name: Start Application
+        run: pm2 start "./src/server.js" --name node-app
+
+      - name: Save PM2 process list
+        run: pm2 save

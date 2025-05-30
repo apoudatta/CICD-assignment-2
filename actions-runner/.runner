@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "MacBooks-MacBook-Air",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus25.actions.githubusercontent.com/ALoiifbebPV5xMh9qLUaaSMRgp4ASO0zHA3Fqivop8x6gwdBPN/",
+  "gitHubUrl": "https://github.com/apoudatta/CICD-assignment-2",
+  "workFolder": "_work"
+}
