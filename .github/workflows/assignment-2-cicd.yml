@@ -1,4 +1,4 @@
-name: CI/CD Assignment 2
+name: CI/CD Assignment Two
 
 on:
   push:
