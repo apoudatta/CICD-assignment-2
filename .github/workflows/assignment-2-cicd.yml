@@ -26,7 +26,7 @@ jobs:
       - name: Run tests and capture results
         run: |
           mkdir -p test-results
-          npm test > test-results/results.txt || echo "Tests failed" > test-results/results.txt
+          npm run check > test-results/results.txt || echo "Tests failed" > test-results/results.txt
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
