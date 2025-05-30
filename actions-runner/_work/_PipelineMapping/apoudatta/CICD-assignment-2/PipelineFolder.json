@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "apoudatta/CICD-assignment-2",
+  "pipelineDirectory": "CICD-assignment-2",
+  "workspaceDirectory": "CICD-assignment-2/CICD-assignment-2",
+  "repositories": {
+    "apoudatta/CICD-assignment-2": {
+      "repositoryPath": "CICD-assignment-2/CICD-assignment-2",
+      "lastRunOn": "05/30/2025 14:31:12 +06:00"
+    }
+  },
+  "lastRunOn": "05/30/2025 14:31:12 +06:00"
+}
