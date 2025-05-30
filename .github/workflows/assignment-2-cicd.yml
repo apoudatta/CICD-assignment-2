@@ -54,9 +54,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Cleanup existing process
-        run: pm2 delete node-app || true
-
+      - name: Install PM2
+        run: npm install pm2 -g
+        
       - name: Start Application
         run: pm2 start "./src/server.js" --name node-app
 
