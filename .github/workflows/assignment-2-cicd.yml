@@ -36,7 +36,7 @@ jobs:
 
   deploy:
     runs-on: self-hosted
-    need: test
+    needs: test
     name: Deploy to Self-Hosted Runner
 
     steps:
